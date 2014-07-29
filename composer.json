@@ -1,0 +1,24 @@
+{
+    "name": "huge/rest-samples",
+    "description" : "Exemple d'utilisation du framework PHP pour créer simplement, rapidement et efficacement une webapp REST",
+    "license": "MIT",
+    "keywords": ["ioc", "bean", "rest", "webapp", "api", "exemple"],
+    "authors": [
+        {
+            "name": "Florent FREMONT",
+            "email": "ff.fremont.florent@gmail.com"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/ffremont/HugeRest-samples/issues"
+    },
+    "require": {
+        "php": ">=5.3.3",
+        "huge/rest": "dev-master",
+        "huge/ioc": "dev-master",
+        "doctrine/cache" : "v1.3.0"
+    },
+    "autoload": {
+        "psr-0": {"MyWebApi\\": "src/main/php/"}
+    }
+}
