@@ -34,13 +34,12 @@ class Person {
     private $request;
 
     /**
-     *
-     * @var \Logger
+     * @Autowired("Huge\IoC\Factory\ILogFactory")
+     * @var \Huge\IoC\Factory\ILogFactory
      */
-    private $logger; 
+    private $loggerFactory;
    
     public function __construct() {
-        $this->logger = \Logger::getLogger(__CLASS__);
     }
 
     /**
@@ -92,6 +91,9 @@ class Person {
         $person = new \stdClass();
         $person->id = uniqid();
         
+        \Logger::getLogger(__CLASS__)->debug(print_r($_FILES,true));
+        \Logger::getLogger(__CLASS__)->debug(print_r($_POST,true));
+        
         return HttpResponse::ok()->code(201)->entity($person);
     }
 
@@ -121,6 +123,14 @@ class Person {
 
     public function setRequest($request) {
         $this->request = $request;
+    }
+    
+    public function getLoggerFactory() {
+        return $this->loggerFactory;
+    }
+
+    public function setLoggerFactory(\Huge\IoC\Factory\ILogFactory $loggerFactory) {
+        $this->loggerFactory = $loggerFactory;
     }
 
 }

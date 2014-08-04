@@ -9,7 +9,9 @@ $configurator = new \LoggerConfiguratorDefault();
 
 \Huge\IoC\Container\SuperIoC::registerLoader(array($loader, 'loadClass'));
 
-$ioc = new \Huge\Rest\WebAppIoC('1.0');
+$ioc = new \Huge\Rest\WebAppIoC('1.1', array(
+    'maxBodySize' => 1024
+));
 
 $memcache = new Memcache();
 $memcache->connect('127.0.0.1', 11211);
@@ -21,6 +23,10 @@ $ioc->setCacheImpl($cache);
 $ioc->addDefinitions(array(
     array(
         'class' => 'MyWebApi\Resources\Person',
+        'factory' => \Huge\IoC\Factory\SimpleFactory::getInstance()
+    ),
+    array(
+        'class' => 'MyWebApi\Log4phpFactory',
         'factory' => \Huge\IoC\Factory\SimpleFactory::getInstance()
     ),
     array(
