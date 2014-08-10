@@ -91,9 +91,6 @@ class Person {
         $person = new \stdClass();
         $person->id = uniqid();
         
-        \Logger::getLogger(__CLASS__)->debug(print_r($_FILES,true));
-        \Logger::getLogger(__CLASS__)->debug(print_r($_POST,true));
-        
         return HttpResponse::ok()->code(201)->entity($person);
     }
 

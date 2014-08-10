@@ -9,14 +9,11 @@ $configurator = new \LoggerConfiguratorDefault();
 
 \Huge\IoC\Container\SuperIoC::registerLoader(array($loader, 'loadClass'));
 
-$ioc = new \Huge\Rest\WebAppIoC('1.1', array(
+$ioc = new \Huge\Rest\WebAppIoC('huge-samples', '1.1', array(
     'maxBodySize' => 1024
 ));
 
-$memcache = new Memcache();
-$memcache->connect('127.0.0.1', 11211);
-$cache = new \Doctrine\Common\Cache\MemcacheCache();
-$cache->setMemcache($memcache);
+$cache = new \Doctrine\Common\Cache\ArrayCache();
 
 $ioc->setApiCacheImpl($cache);
 $ioc->setCacheImpl($cache);
