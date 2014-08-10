@@ -16,7 +16,7 @@
         "php": ">=5.3.3",
         "apache/log4php": "2.3.0",
         "huge/rest": "dev-master",
-        "huge/ioc": "v2.0.0",
+        "huge/ioc": "dev-master",
         "doctrine/cache" : "v1.3.0"
     },
     "autoload": {
