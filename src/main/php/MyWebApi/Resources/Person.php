@@ -2,7 +2,7 @@
 
 namespace MyWebApi\Resources;
 
-use Huge\Ioc\Annotations\Component;
+use Huge\IoC\Annotations\Component;
 use Huge\IoC\Annotations\Autowired;
 use Huge\Rest\Annotations\Resource;
 use Huge\Rest\Annotations\Path;
@@ -44,7 +44,7 @@ class Person {
 
     /**
      * @Get
-     * @Consumes({"text/plain"})
+     * @Consumes({"*\/*"})
      * @Produces({"text/plain"})
      */
     public function ping() {        
